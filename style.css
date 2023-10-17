@@ -1,73 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* @import url ('https://fonts.googleapis.com/css?family=Rubik&display=swap'); */
 
-body {
-  /* background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 35%,
-    rgba(0, 212, 255, 1) 100%); */
-    
-    background-image: url('https://images.rawpixel.com/image_social_landscape/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3B4MTM2NjcxMC1pbWFnZS1rd3Z4eGVxcC5qcGc.jpg?s=Q0V4hCehvLynd_BEAdJ6-IexornNwi9lEolKrpEaHcY');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    font-family: 'Open Sans', sans-serif;
-  margin: 5rem;
-  text-align: center;
-  color: white;
-}
+input[type=text] {
 
-input {
-  padding: 0.5rem;
-  margin-bottom: 2rem;
-  font-size: inherit;
-  font-family: inherit;
-}
-
-p {
-  color: #ffffff;
-}
-
-
-
-.pokedex {
-  max-width: 1200px;
+  padding: 10px 20px;
+  font-size: 17px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-  color: rgb(225, 137, 255);
+    display: block;
 }
 
-/* .pokedex div {
-  background-color: rgb(255, 255, 255);
-} */
-
-.pokedex img {
-  width: 100%;
-  object-fit: cover;
-  height: 250px;
-  padding: 1rem;
+#generation-list {
+  list-style-type: none;
+  padding: 0;
 }
 
-@media (max-width: 1000px) {
-  .pokedex {
-    grid-template-columns: repeat(3, 1fr);
-  }
+#generation-list li {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
-@media (max-width: 700px) {
-  .pokedex {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 500px) {
-  .pokedex {
-    grid-template-columns: repeat(1, 1fr);
-  }
+
+#generation-list li:hover {
+  background-color: #f2f2f2;
 }

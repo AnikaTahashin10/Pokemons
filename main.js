@@ -1,57 +1,31 @@
-const content = document.querySelector('.pokedex');
-const searchBar = document.getElementById('searchBar');
+// Manually define the list of Pokémon generations
+const generations = [
+  "Generation 1 (Kanto)",
+  "Generation 2 (Johto)",
+  "Generation 3 (Hoenn)",
+  "Generation 4 (Sinnoh)",
+  "Generation 5 (Unova)",
+  "Generation 6 (Kalos)",
+  "Generation 7 (Alola)",
+  "Generation 8 (Galar)"
+];
 
-searchBar.addEventListener("keyup", e => {});
+// Function to display the generations
+function displayGenerations() {
+  const generationList = document.getElementById('generation-list');
 
-let pokeData = [];
+  generations.forEach(generationName => {
+      const generationElement = document.createElement('li');
+      generationElement.textContent = generationName;
+      
+      // Added a click event listener to handle when a generation is clicked
+      generationElement.addEventListener('click', () => {
+          // code here to handle the click event
 
-const fetchData = async () => {
-  await fetch('https://pokeapi.co/api/v2/pokemon?limit=121&offset=0')
-    .then((response) => response.json())
-    .then((data) => {
-      const fetches = data.results.map((item) => {
-        return fetch(item.url)
-          .then((res) => res.json())
-          .then((data) => {
-            return {
-              id: data.id,
-              name: data.name,
-              img: data.sprites.other['official-artwork'].front_default,
-              types: data.types,
-            };
-          });
       });
-      Promise.all( fetches).then((res) => {
-        pokeData = res;
-        pokeCards();
-      });
-    });
-};
-
-// TODO: 
-// 1. pokemon.types is an array, you need to map it again
-// 2. connect input and search from pokeDex array by using the .filter() method (https://www.jamesqquick.com/blog/build-a-javascript-search-bar/) 
-
-const pokeCards = () => {
-  const cards = pokeData
-    .map((pokemon) => {
-      console.log(pokemon.types)
-      return `<div>
-  <img src="${pokemon.img}" alt="${pokemon.name}"/>
-  <p>${pokemon.id}</p>
-  <h2>${pokemon.name}</h2>
-  <div>
-  ${pokemon.types.map((type) => getTypeString(type)).join(' ')}
-   
-  </div>
-</div>`;
-    }).join('');
-
-  content.innerHTML = cards;
-};
-
-const getTypeString = (type) => {
-  return ` <p> ${type.type.name} </p>`;
+//to add each newly created list item to the HTML element with the ID generation-list.
+      generationList.appendChild(generationElement);
+  });
 }
 
-fetchData();
+displayGenerations();
