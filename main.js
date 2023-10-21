@@ -1,13 +1,23 @@
+
+async function logPokedex() {
+  const response = await fetch("https://pokeapi.co/api/v2/generation/{id or name}/");
+  const pokedex = await response.json();
+  console.log(pokedex);
+}
+console.log(logPokedex());
+
 // Manually define the list of Pokémon generations
 const generations = [
-  "Generation 1 (Kanto)",
-  "Generation 2 (Johto)",
-  "Generation 3 (Hoenn)",
-  "Generation 4 (Sinnoh)",
-  "Generation 5 (Unova)",
-  "Generation 6 (Kalos)",
-  "Generation 7 (Alola)",
-  "Generation 8 (Galar)"
+  "Generation 1 ",
+  "Generation 2 ",
+  "Generation 3 ",
+  "Generation 4 ",
+  "Generation 5 ",
+  "Generation 6 ",
+  "Generation 7 ",
+  "Generation 8 ",
+  "Generation 9 "
+
 ];
 
 // Function to display the generations
