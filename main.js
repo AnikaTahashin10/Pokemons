@@ -1,5 +1,49 @@
+const search = document.getElementById('search'); 
+const pokedex = document.getElementById('pokedex');
+console.log(pokedex);
 
-async function logPokedex() {
+
+const fetchpokemon = () => {
+  const promises = [];
+  for (i = 1; i<= 150; i++ ){
+const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+promises.push(fetch(url).then((res) => res.json()))
+  }
+
+  Promise.all(promises).then((results) => {
+    const pokemon = results.map((data) => ({
+      id: data.id,
+      name: data.name,
+      image: data.sprites['front_default'],
+      type: data.types.map((type) => type.type.name).join(', '),
+      weight: data.weight,
+      height: data.height,
+    }));
+   displayPokemon(pokemon);
+  });
+};
+
+const displayPokemon = (pokemon) => {
+  console.log(pokemon);
+  const pokemonHTMLString = pokemon.map((pokeman) => ` <li class = "card">
+  <img class = "card-image" src ="${pokeman.image}"/>
+  <h2 class = "card-title">${pokeman.id}. ${pokeman.name}</h2>
+  <p class = "card-subtitle">Type: ${pokeman.type}</p>
+  <p class = "card-subtitle">Height: ${pokeman.height}</p>
+  <p class = "card-subtitle">Weight: ${pokeman.weight}</p>
+  </li>`).join('');
+  pokedex.innerHTML = pokemonHTMLString;
+};
+ fetchpokemon()
+
+
+
+
+
+
+
+
+/* async function logPokedex() {
   const response = await fetch("https://pokeapi.co/api/v2/generation/{id or name}/");
   const pokedex = await response.json();
   console.log(pokedex);
@@ -39,3 +83,5 @@ function displayGenerations() {
 }
 
 displayGenerations();
+
+*/
