@@ -13,29 +13,31 @@
   <main>
   <div class="container">
   <h1>POKEDEX</h1>
-  <div>
-    <input type="text" id="searchBar" placeholder="Search">
-    <div id="pokemon-list" class="hidden"></div>
-  </div>
-
-  <div id="generation-button">
-    <h2 style="text-align: center ;">Pick the generation of your choice</h2>
-    <button id="gen1" class="button">Generation I</button>
-    <button id="gen2" class="button">Generation II</button>
-    <button id="gen3" class="button">Generation III</button>
-    <button id="gen4" class="button">Generation IV</button>
-    <button id="gen5" class="button">Generation V</button>
-    <button id="gen6" class="button">Generation VI</button>
-    <button id="gen7" class="button">Generation VII</button>
-    <button id="gen8" class="button">Generation VIII</button>
-    <button id="gen9" class="button">Generation IX</button>
+  <h2 style="text-align: center;">Select a Pokemon Generation:</h2>
+  <div id="generation">
+    <button value="1">Generation 1</button>
+    <button value="2">Generation 2</button>
+    <button value="3">Generation 3</button>
+    <button value="4">Generation 4</button>
+    <button value="5">Generation 5</button>
+    <button value="6">Generation 6</button>
+    <button value="7">Generation 7</button>
+    <button value="8">Generation 8</button>
+    <button value="9">Generation 9</button>
   </div>
   
- 
+  <br><br>
+    <div id="generation-count"></div>
+
+  <h2 style="text-align: center" >Search Pokemon</h2>
+  <input type="text" placeholder="Search" id="search">
+  <ul id="pokemon-list"></ul>
+  <h2 id="generation-count"></h2>
 
 
-  <ol id="pokedex"></ol>
-</div>
+
+
+
 </main>
   <script src="main.js"></script>
 </body>
