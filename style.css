@@ -20,6 +20,26 @@ body{
   display: block;
 
 }
+
+.button {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px; 
+}
+
+.button:hover {
+  background-color: #f0f0f0;
+}
+
+
 .card{
   list-style: none;
   padding: 40px;
